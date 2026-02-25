@@ -1,0 +1,28 @@
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Image size
+height = 400
+width = 400
+
+# Create empty image
+img = np.zeros((height, width), dtype=np.uint8)
+
+# Mid points
+h_mid = height // 2
+w_mid = width // 2
+
+# Four homogeneous quadrants
+img[:h_mid, :w_mid] = 50     # Top-left (dark gray)
+img[:h_mid, w_mid:] = 100    # Top-right
+img[h_mid:, :w_mid] = 150    # Bottom-left
+img[h_mid:, w_mid:] = 200    # Bottom-right (light gray)
+
+# Display image
+plt.imshow(img, cmap='gray')
+plt.title("Image with Four Homogeneous Quadrants")
+plt.axis('off')
+plt.show()
